@@ -1,0 +1,2560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fundación Pornomotora</title>
+<link rel="icon" type="image/png" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png">
+<link rel="apple-touch-icon" href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --white: #FFFFFF;
+  --light: #F5F5F5;
+  --dark: #3D5166;
+  --darker: #0A0A0A;
+  --cyan: #00E5BF;
+  --cyan-dark: #00C4A3;
+  --gray: #888888;
+  --border: #E0E0E0;
+  --border-dark: #324455;
+  --text: #1A1A1A;
+  --text-muted: #666;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--white);
+  color: var(--text);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  overflow-x: hidden;
+}
+
+/* ===== PAGES ===== */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ===== NAV ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 2.5rem;
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.logo-circle {
+  width: 38px; height: 38px;
+  border: 2px solid var(--dark);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: 0.7rem;
+  letter-spacing: -0.02em;
+  color: var(--dark);
+  flex-shrink: 0;
+}
+
+.nav-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  line-height: 1.2;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--dark);
+  border-bottom-color: var(--cyan);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--dark);
+}
+
+/* ===== MARQUEE ===== */
+.marquee-wrap {
+  overflow: hidden;
+  background: var(--dark);
+  padding: 0.55rem 0;
+}
+.marquee-inner {
+  display: flex;
+  white-space: nowrap;
+  animation: marquee 28s linear infinite;
+}
+.marquee-inner span {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  color: var(--cyan);
+  padding-right: 3rem;
+  text-transform: uppercase;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ===== HERO FULL WIDTH ===== */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5rem;
+  overflow: hidden;
+  margin-top: 61px;
+}
+
+.hero-bg-img {
+  position: absolute;
+  inset: 0;
+  background-color: #1a0f08;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.85) 0%,
+    rgba(0,0,0,0.5) 50%,
+    rgba(0,0,0,0.2) 100%
+  );
+}
+
+.hero-photo-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8%;
+}
+
+.photo-placeholder-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.15);
+  text-transform: uppercase;
+  border: 1px dashed rgba(255,255,255,0.15);
+  padding: 1.5rem 2rem;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 10;
+  padding: 0 5%;
+  max-width: 680px;
+}
+
+.hero-eyebrow {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: var(--cyan);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.hero-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: clamp(4rem, 10vw, 8rem);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 420px;
+  font-weight: 300;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.6rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  text-decoration: none;
+  border: none;
+  transition: all 0.22s;
+  border-radius: 50px;
+}
+
+.btn-primary {
+  background: var(--white);
+  color: var(--dark);
+}
+.btn-primary:hover { background: var(--cyan); }
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255,255,255,0.5);
+}
+.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.btn-dark {
+  background: var(--dark);
+  color: var(--white);
+  border-radius: 50px;
+}
+.btn-dark:hover { background: var(--cyan); color: var(--dark); }
+
+.btn-cyan {
+  background: var(--cyan);
+  color: var(--dark);
+  border-radius: 50px;
+  font-weight: 700;
+}
+.btn-cyan:hover { background: var(--cyan-dark); }
+
+/* ===== SECTIONS ===== */
+.section-white { background: var(--white); }
+.section-light { background: var(--light); }
+.section-dark { background: var(--dark); color: var(--white); }
+
+.container {
+  max-width: 85%;
+  margin: 0 auto;
+  padding: 5rem 0;
+}
+
+.section-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1rem;
+}
+
+.section-tag::before {
+  content: '';
+  width: 8px; height: 8px;
+  background: var(--cyan);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+h2.title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.5rem;
+}
+
+.section-dark h2.title { color: var(--white); }
+.section-white h2.title,
+.section-light h2.title { color: var(--dark); }
+
+h3.subtitle {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+p.body-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  max-width: 620px;
+}
+
+.section-dark p.body-text { color: rgba(255,255,255,0.6); }
+
+/* ===== FULL WIDTH IMAGE BAND ===== */
+.img-band {
+  width: 100%;
+  height: 420px;
+  background-color: #1a1208;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.img-band-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+  border: 1px dashed rgba(255,255,255,0.15);
+  padding: 1rem 2rem;
+}
+
+.img-band-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0,0,0,0.6) 0%, transparent 60%);
+}
+
+/* ===== 2-COL GRID ===== */
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.two-col.reverse { direction: rtl; }
+.two-col.reverse > * { direction: ltr; }
+
+/* ===== CARDS ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  margin-top: 3rem;
+}
+
+.card {
+  background: var(--white);
+  padding: 2rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  position: relative;
+}
+
+.card:hover { background: var(--light); }
+.card:hover .proj-card-img { transform: scale(1.05); }
+
+.card-img {
+  height: 200px;
+  background-color: #1a1208;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.2);
+  text-transform: uppercase;
+}
+
+.card-tag {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cyan-dark);
+  margin-bottom: 0.4rem;
+}
+
+.card-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.card-link {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dark);
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: gap 0.2s, color 0.2s;
+}
+.card-link:hover { color: var(--cyan-dark); gap: 0.7rem; }
+
+/* ===== DARK CARDS (info boxes) ===== */
+.dark-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--border-dark);
+  border: 1px solid var(--border-dark);
+  margin-top: 2.5rem;
+}
+
+.dark-card {
+  background: #1A1A1A;
+  padding: 2rem;
+}
+
+.dark-card-icon {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: #2A2A2A;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.1rem;
+}
+
+.dark-card h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+
+.dark-card p {
+  font-size: 0.88rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.6;
+}
+
+.dark-card .time-highlight {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.4rem;
+  color: var(--cyan);
+  margin-top: 0.5rem;
+}
+
+/* ===== STATS ===== */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+  margin: 3rem 0;
+}
+
+.stat-item {
+  padding: 2rem;
+  text-align: center;
+  border-right: 1px solid var(--border-dark);
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--cyan);
+  display: block;
+}
+
+.stat-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+/* ===== QUOTE BAND ===== */
+.quote-band {
+  background: var(--darker);
+  padding: 3rem 5%;
+  text-align: center;
+}
+
+.quote-band blockquote {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 2rem);
+  color: var(--white);
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* ===== PRINCIPLES ===== */
+.principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border: 1px solid var(--border);
+  margin-top: 2.5rem;
+}
+
+.principle {
+  padding: 2.5rem;
+  border-right: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.principle:last-child { border-right: none; }
+
+.principle::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--cyan);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s;
+}
+.principle:hover::after { transform: scaleX(1); }
+
+.principle-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: 3rem;
+  color: rgba(0,0,0,0.15);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.principle h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 1.1rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dark);
+  margin-bottom: 0.6rem;
+}
+
+/* ===== GALLERY ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin-top: 2rem;
+}
+
+.gallery-item {
+  aspect-ratio: 1;
+  background: #1a1208;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.gallery-item:nth-child(7n+1) { grid-column: span 2; grid-row: span 2; }
+
+.gallery-inner {
+  width: 100%; height: 100%;
+  background-color: #1a1208;
+  background-size: cover;
+  background-position: center;
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.4s;
+}
+.gallery-item:hover .gallery-inner { transform: scale(1.06); }
+
+.gallery-cap {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%);
+  padding: 1.5rem 0.8rem 0.6rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.gallery-item:hover .gallery-cap { opacity: 1; }
+
+.gallery-lbl {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: rgba(255,255,255,0.15);
+  text-transform: uppercase;
+}
+
+/* ===== CONTACT ===== */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 5rem;
+}
+
+.form-field {
+  margin-bottom: 1.2rem;
+}
+
+.form-field label {
+  display: block;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.4rem;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  background: var(--light);
+  border: 1.5px solid var(--border);
+  color: var(--dark);
+  padding: 0.85rem 1rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+}
+.form-field input:focus,
+.form-field textarea:focus { border-color: var(--cyan); }
+.form-field textarea { height: 130px; resize: vertical; }
+
+.contact-info-block {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+.contact-info-block:last-child { border-bottom: none; }
+
+.contact-lbl {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan-dark);
+  margin-bottom: 0.4rem;
+}
+
+.contact-val {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--dark);
+}
+.contact-val a { color: inherit; text-decoration: none; }
+
+/* ===== PAGE HERO ===== */
+.page-hero {
+  position: relative;
+  min-height: 52vh;
+  display: flex;
+  align-items: flex-end;
+  padding: 2rem 5% 4rem;
+  overflow: hidden;
+  margin-top: 61px;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-color: #0f0b08;
+  background-size: cover;
+  background-position: center;
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 100%);
+}
+
+.page-hero-photo-placeholder {
+  position: absolute;
+  right: 5%; top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.12);
+  text-transform: uppercase;
+  border: 1px dashed rgba(255,255,255,0.12);
+  padding: 1rem 1.5rem;
+  z-index: 1;
+}
+
+.page-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 700px;
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  cursor: pointer;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.back-btn:hover { color: var(--cyan); }
+
+.page-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 900;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 0.92;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  margin-bottom: 0.8rem;
+}
+
+.page-subtitle {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.65);
+}
+
+/* ===== CTA BAND ===== */
+.cta-band {
+  background: var(--dark);
+  padding: 3.5rem 5%;
+  text-align: center;
+}
+.cta-band h2 { color: var(--white); margin-bottom: 0.8rem; }
+.cta-band p { color: rgba(255,255,255,0.5); margin: 0 auto 2rem; max-width: 480px; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--darker);
+  padding: 4rem 5% 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  max-width: 1180px;
+  margin: 0 auto 3rem;
+}
+
+.footer-brand p {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.7;
+  margin-top: 1rem;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 0.68rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 1.2rem;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.footer-col ul a {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.footer-col ul a:hover { color: var(--white); }
+
+.footer-bottom {
+  position: relative;
+  z-index: 1;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-top: 2rem;
+  border-top: 1px solid #222;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-bottom p {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  nav { padding: 0.8rem 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .two-col, .contact-grid, .footer-grid {
+    position: relative;
+    z-index: 1;
+    grid-template-columns: 1fr !important;
+    gap: 2rem;
+  }
+  .cards-grid, .principles { grid-template-columns: 1fr; }
+  .dark-cards { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-item:nth-child(7n+1) { grid-column: span 1; grid-row: span 1; }
+  .hero-content { padding: 0 1.5rem; }
+  .container { padding: 3rem 5%; max-width: 100% !important; }
+  .footer-bottom {
+    position: relative;
+    z-index: 1;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  /* Hero watermark logos - hide on mobile */
+  .page-hero img[style*="bottom:3rem"],
+  .hero img[style*="bottom:5rem"] {
+    display: none !important;
+  }
+  /* Home hero logo watermark */
+  .hero > img { display: none !important; }
+  /* Page hero logos */
+  .page-hero > img { display: none !important; }
+  /* Project cards on Proyectos page - stack vertically */
+  .card[style*="grid-template-columns:1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .card[style*="grid-template-columns:1fr 1fr"] > div[style*="aspect-ratio"] {
+    aspect-ratio: 16/9 !important;
+    min-height: 250px;
+  }
+  /* Home project cards */
+  .card-img { height: 200px !important; }
+  /* Video + text sections - stack */
+  div[style*="grid-template-columns:1fr 1fr;gap:4rem"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  div[style*="grid-template-columns:1fr 1fr;gap:3rem"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+  /* Full width images - reduce height on mobile */
+  .img-band[style*="height:750px"] { height: 400px !important; }
+  .img-band[style*="height:975px"] { height: 500px !important; }
+  .img-band[style*="height:480px"] { height: 300px !important; }
+  /* Territory section on home */
+  .img-band[style*="min-height:500px"] { min-height: 400px !important; }
+  /* CTA band */
+  .cta-band img { width: 180px !important; }
+  /* Proyectos page container */
+  div[style*="max-width:70%"] { max-width: 95% !important; }
+  /* Inscription page */
+  div[style*="max-width:70%;margin:0 auto;padding:2.5rem"] { max-width: 90% !important; }
+  /* Step indicators */
+  #step-nav { flex-wrap: wrap; gap: 0.5rem !important; }
+  #step-nav > div[style*="flex:0 0 40px"] { display: none; }
+  /* Form fields 2-col to 1-col */
+  div[style*="grid-template-columns:1fr 1fr;gap:1.5rem"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Lightbox nav */
+  .lightbox-prev { left: 0.5rem; }
+  .lightbox-next { right: 0.5rem; }
+  /* Page title size */
+  .page-title { font-size: clamp(2.5rem, 8vw, 4rem); }
+  .title { font-size: clamp(1.5rem, 6vw, 2.5rem); }
+}
+
+.lightbox { position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;display:none;align-items:center;justify-content:center;cursor:pointer; }
+.lightbox.open { display:flex; }
+.lightbox img { max-width:90%;max-height:85vh;object-fit:contain;border-radius:4px; }
+.lightbox-cap { position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.7);font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;z-index:10000; }
+.lightbox-close { position:fixed;top:1.5rem;right:2rem;color:#fff;font-size:2rem;cursor:pointer;z-index:10000;font-weight:300;opacity:0.7; }
+.lightbox-close:hover { opacity:1; }
+.lightbox-nav { position:fixed;top:50%;transform:translateY(-50%);color:#fff;font-size:2.5rem;cursor:pointer;z-index:10000;opacity:0.5;font-weight:300;padding:1rem; }
+.lightbox-nav:hover { opacity:1; }
+.lightbox-prev { left:1rem; }
+.lightbox-next { right:1rem; }
+
+.flbl { display:block;font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:rgba(255,255,255,0.6);margin-bottom:0.5rem; }
+.aula-card { background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:8px;overflow:hidden;margin-bottom:2.5rem; }
+.aula-card-header { display:flex;align-items:center;gap:1rem;padding:1.5rem 2rem 0; }
+.aula-num { font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan); }
+.aula-title { font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.4rem;color:#fff;padding:0 2rem;margin:0.5rem 0; }
+.aula-desc { font-size:0.9rem;color:rgba(255,255,255,0.5);line-height:1.7;padding:0 2rem 1.5rem; }
+.aula-video { padding:0 2rem 2rem; }
+.aula-video iframe { width:100%;aspect-ratio:16/9;border-radius:4px;border:none; }
+.aula-recursos-btn { display:flex;align-items:center;gap:0.5rem;margin:0 2rem 1.5rem;padding:0.8rem 1.5rem;background:rgba(0,229,191,0.08);border:1px solid rgba(0,229,191,0.2);border-radius:4px;color:var(--cyan);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.8rem;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s; }
+.aula-recursos-btn:hover { background:rgba(0,229,191,0.15); }
+.aula-recursos { display:none;margin:0 2rem 2rem;padding:1.5rem;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:4px; }
+.aula-recursos.open { display:block; }
+.aula-recursos h4 { font-size:0.7rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--cyan);margin-bottom:1rem; }
+.aula-recurso { display:flex;align-items:center;gap:0.7rem;padding:0.6rem 0;font-size:0.85rem; }
+.aula-recurso a { color:rgba(255,255,255,0.7);text-decoration:none;transition:color 0.2s; }
+.aula-recurso a:hover { color:var(--cyan); }
+.finput { width:100%;padding:0.9rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;color:#fff;font-family:'Plus Jakarta Sans',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s; }
+.finput:focus { border-color:var(--cyan); }
+.fopt { display:flex;align-items:center;gap:0.6rem;padding:0.75rem 1rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:4px;cursor:pointer;font-size:0.85rem;color:rgba(255,255,255,0.7);transition:border-color 0.2s; }
+.fopt:hover { border-color:rgba(255,255,255,0.25); }
+.fbar { display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(255,255,255,0.08);padding-top:2rem; }
+.fbtn-next { padding:0.85rem 2.5rem;background:var(--cyan);color:#000;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;border:none;border-radius:4px;cursor:pointer; }
+.fbtn-next:hover { background:var(--cyan-dark); }
+.fbtn-prev { padding:0.85rem 2rem;background:transparent;color:rgba(255,255,255,0.5);font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:0.82rem;letter-spacing:0.08em;text-transform:uppercase;border:none;cursor:pointer; }
+.fbtn-prev:hover { color:#fff; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a class="nav-logo" onclick="showPage('home')">
+    <img src="https://i.imgur.com/tz8GOAS.png" alt="Fundación Pornomotora" style="width:55px;height:55px;object-fit:contain">
+    <div class="nav-name">FUNDACIÓN<br>PORNOMOTORA</div>
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nl-home">Inicio</a></li>
+    <li><a onclick="showPage('quienes')" id="nl-quienes">Quiénes Somos</a></li>
+    <li><a onclick="showPage('proyectos')" id="nl-proyectos">Proyectos</a></li>
+    <li><a onclick="showPage('galeria')" id="nl-galeria">Galería</a></li>
+    <li><a onclick="showPage('contacto')" id="nl-contacto">Contacto</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ===================== HOME ===================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO FULL WIDTH -->
+  <div class="hero">
+    <div class="hero-bg-img" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NSMLqPFgKoZOUDcM.jpg') center/cover no-repeat"></div>
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Fundación Pornomotora presenta</div>
+      <h1 class="hero-title">FRECUENCIA<br>ORIGEN</h1>
+      <p class="hero-sub">El territorio como instrumento. Cada presentación nace del lugar donde se presenta.</p>
+      <div class="hero-btns">
+        <a class="btn btn-primary" onclick="showPage('proyecto-frecuencia')">Descubre el proyecto →</a>
+        <a class="btn btn-outline" onclick="showPage('quienes')">Conócenos</a>
+      </div>
+    </div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;bottom:5rem;right:5%;width:280px;opacity:0.7;z-index:10">  </div>
+
+  <!-- MARQUEE -->
+  <div class="marquee-wrap">
+    <div class="marquee-inner"><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span><span>CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · CIRCULACIÓN · INTERCAMBIO · MEMORIA · TRANSFORMACIÓN · </span></div>
+  </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <div class="section-white">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="section-tag">Quiénes Somos</div>
+          <h2 class="title">De la escena<br>musical a la<br>acción cultural</h2>
+          <p class="body-text" style="margin-bottom:1.2rem">La Fundación Pornomotora nace del recorrido artístico de la banda Pornomotora, una agrupación con más de 20 años de trayectoria en la escena musical local, nacional e internacional.</p>
+          <p class="body-text" style="margin-bottom:2rem">A partir de ese conocimiento acumulado, se crea la Fundación como una plataforma para expandir el impacto artístico hacia procesos de formación, intercambio territorial y creación colectiva.</p>
+          <a class="btn btn-dark" onclick="showPage('quienes')">Conoce nuestra historia →</a>
+        </div>
+        <div class="img-band" style="height:380px;border-radius:4px;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/WZoQAoYqqDLSJGyu.png') center/cover no-repeat">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUOTE BAND -->
+  <div class="quote-band">
+    <blockquote>"La fundación entiende la música como una herramienta de transformación social, diálogo intercultural y construcción de memoria."</blockquote>
+  </div>
+
+  <!-- PROYECTOS -->
+  <div class="section-light">
+    <div class="container">
+      <div class="section-tag">Proyectos</div>
+      <h2 class="title">Nuestros proyectos</h2>
+      <div class="cards-grid">
+        <div class="card" onclick="showPage('proyecto-frecuencia')">
+          <div class="card-img" style="height:240px;overflow:hidden"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NSMLqPFgKoZOUDcM.jpg') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div class="card-tag">Circulación Territorial</div>
+          <div class="card-title">Frecuencia Origen</div>
+          <p class="card-desc">El territorio como instrumento</p>
+          <span class="card-link">Ver proyecto →</span>
+        </div>
+        <div class="card" onclick="showPage('proyecto-navegantes')">
+          <div class="card-img" style="height:240px;overflow:hidden"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/pcUqAEWIJZTCuaeO.JPG') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div class="card-tag">Formación</div>
+          <div class="card-title">Navegantes Sonoros</div>
+          <p class="card-desc">El sonido como herramienta de encuentro y transformación</p>
+          <span class="card-link">Ver proyecto →</span>
+        </div>
+        <div class="card" onclick="showPage('proyecto-rua')">
+          <div class="card-img" style="height:240px;overflow:hidden"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/JWMfQvSasrLfdMeW.png') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div class="card-tag">Proyecto Artístico</div>
+          <div class="card-title">RUA MKL</div>
+          <p class="card-desc">Electrónica híbrida con vocación global</p>
+          <span class="card-link">Ver proyecto →</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2rem">
+        <a class="btn btn-dark" onclick="showPage('proyectos')">Ver todos los proyectos</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FRECUENCIA TERRITORIO + STATS -->
+  <div class="img-band" style="height:auto;min-height:500px;background:url('https://private-us-east-1.manuscdn.com/sessionFile/9JzZnB29J3osM66fqXQ9oN/sandbox/QDG7p0VrBpSGb1t51zM7OF-img-2_1771678976000_na1fn_dGVycml0b3Jpby1wYWNpZmljbw.jpg?x-oss-process=image/resize,w_1920,h_1920/format,webp/quality,q_80&Expires=1798761600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvOUp6Wm5CMjlKM29zTTY2ZnFYUTlvTi9zYW5kYm94L1FERzdwMFZyQnBTR2IxdDUxek03T0YtaW1nLTJfMTc3MTY3ODk3NjAwMF9uYTFmbl9kR1Z5Y21sMGIzSnBieTF3WVdOcFptbGpidy5qcGc~eC1vc3MtcHJvY2Vzcz1pbWFnZS9yZXNpemUsd18xOTIwLGhfMTkyMC9mb3JtYXQsd2VicC9xdWFsaXR5LHFfODAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3OTg3NjE2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=irv87NRhJ2U6ydZlyM51UIy1Oe-DX6X9iEZTurgOU0MXCdsGd9bXV82j0pQrRr6zXXslll2u28PW3aboHw3QBvsNSwyihwFMlSWlVhge25hcnfBcXPDj86b5s-qGlajZl~GpYNpljJy0KrUQ8XsrPD5e1yzaZ7llVNBzuzA~SAlA0unFfVDZVzbc9WT6nL0WAgjt5ZJ70TUWtLw7XGNTLgVPKBnzQvLfcNPFL2o-hv7dJeTBSpjf~4DED2DfJV6GTsWuYaDBzFdEAGuTxnrwkqzXh8bFcuiTY8l9Z~YxQpEwmxZxl-mrxKmrrCfOrKWNpgfcXmH6VTMxRIayXIPtlg__') center/cover no-repeat;display:flex;flex-direction:column;justify-content:flex-end">
+    <div style="position:absolute;inset:0;background:linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, rgba(0,0,0,0.7) 100%)"></div>
+    <div style="position:relative;z-index:2;max-width:85%;margin:0 auto;padding:4rem 0 3rem;width:100%">
+      <div class="two-col" style="align-items:flex-end">
+        <div>
+          <div class="section-tag" style="color:var(--cyan)">Frecuencia Origen</div>
+          <h2 class="title" style="color:#fff">El territorio como instrumento</h2>
+          <p style="font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:1rem">Frecuencia Origen es la plataforma de circulación y creación territorial de RUA MKL. Nace como una evolución natural del recorrido artístico del proyecto y propone que cada presentación sea precedida por un proceso de mediación e intercambio con la comunidad anfitriona.</p>
+          <p style="font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:1rem">Antes de cada concierto se desarrolla "Frecuencia Mediación", un espacio de encuentro con jóvenes, músicos y agentes culturales del territorio. Allí se comparten intereses, saberes y experiencias en torno a producción musical, DJ, fotografía y registro audiovisual.</p>
+          <p style="font-size:0.92rem;color:rgba(255,255,255,0.75);line-height:1.7;margin-bottom:1rem">Posteriormente, los participantes recorren su propio entorno para capturar sonidos e imágenes del territorio vivo: naturaleza, oficios, personajes, espacios cotidianos. Este material se convierte en insumo creativo para el concierto, donde RUA MKL integra en tiempo real los sonidos sampleados y las imágenes producidas colectivamente.</p>
+          <p style="font-size:1rem;color:var(--cyan);line-height:1.7;margin-bottom:1.5rem;font-style:italic;font-weight:600">El resultado es una obra que no solo se presenta en el territorio, sino que nace de él.</p>
+          <a class="btn btn-cyan" onclick="showPage('proyecto-frecuencia')">Ver proyecto →</a>
+        </div>
+        <div>
+          <div class="stats-row">
+            <div class="stat-item"><span class="stat-num counter" data-target="12" data-suffix="+" style="color:#fff">0</span><span class="stat-label" style="color:rgba(255,255,255,0.6)">Años de trayectoria</span></div>
+            <div class="stat-item"><span class="stat-num counter" data-target="850" data-suffix="+" style="color:#fff">0</span><span class="stat-label" style="color:rgba(255,255,255,0.6)">Jóvenes impactados</span></div>
+            <div class="stat-item"><span class="stat-num counter" data-target="4" data-suffix="" style="color:#fff">0</span><span class="stat-label" style="color:rgba(255,255,255,0.6)">Proyectos activos</span></div>
+            <div class="stat-item"><span class="stat-num counter" data-target="5" data-suffix="" style="color:#fff">0</span><span class="stat-label" style="color:rgba(255,255,255,0.6)">Territorios activados</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- IMPACTO TERRITORIAL -->
+  <div class="section-white">
+    <div class="container">
+      <div class="section-tag">Impacto Territorial</div>
+      <h2 class="title">Construyendo desde<br>el territorio</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">Frecuencia Origen se ha desarrollado en distintos territorios de Colombia, incluyendo procesos en el Pacífico Norte, el Pacífico Sur, el Caribe colombiano y diversas localidades de la ciudad de Bogotá.</p>
+        <div>
+          <p class="body-text" style="margin-bottom:1.2rem">En estos espacios se ha trabajado con población afrodescendiente e indígena, generando encuentros interculturales donde la música electrónica dialoga con saberes ancestrales, prácticas comunitarias y memorias territoriales.</p>
+          <p class="body-text">Cada activación fortalece capacidades locales, promueve la participación juvenil y construye espacios de creación compartida.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="width:280px;margin-bottom:1rem;opacity:0.8">    <h2 class="title">¿Quieres saber más?</h2>
+    <p class="body-text">Conéctate con nosotros para conocer nuestros proyectos, colaborar o participar en nuestras activaciones territoriales.</p>
+    <a class="btn btn-cyan" onclick="showPage('contacto')">Contáctanos →</a>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#7c15121a133c1a0912181d1f1513120c130e1213111308130e1d52130e1b"><span class="__cf_email__" data-cfemail="573e393138173122393336343e383927382539383a382338253679382530">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== QUIÉNES SOMOS ===================== -->
+<div id="page-quienes" class="page">
+  <div class="page-hero" style="min-height:40vh">
+    <div class="page-hero-bg" style="background:#3D5166"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero-overlay" style="background:rgba(0,0,0,0.55)"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">
+    <div class="page-hero-content">
+      <div class="section-tag">Nuestra Historia</div>
+      <h1 class="page-title">QUIÉNES<br>SOMOS</h1>
+      <p class="page-subtitle">Fundación Pornomotora</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container">
+      <div class="section-tag">Fundación Pornomotora</div>
+      <h2 class="title">Cultura, creación<br>y territorio</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">La Fundación Pornomotora nace del recorrido artístico de la banda Pornomotora, una agrupación con más de 20 años de trayectoria en la escena musical local, nacional e internacional. Durante más de dos décadas, Pornomotora ha explorado la producción musical, la experimentación sonora y la circulación artística en diversos escenarios.</p>
+        <p class="body-text">A partir de ese conocimiento acumulado, se crea la Fundación Pornomotora como una plataforma para expandir el impacto artístico hacia procesos de formación, intercambio territorial y creación colectiva. La fundación entiende la música como una herramienta de transformación social, diálogo intercultural y construcción de memoria.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-band" style="height:750px;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/WZoQAoYqqDLSJGyu.png') center 30%/cover no-repeat"><div class="img-band-overlay"></div></div>
+
+  <div style="background:#f5f5f5;padding:4rem 5%">
+  <div style="max-width:85%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+    <div style="aspect-ratio:16/9;overflow:hidden;border-radius:4px">
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/n_MgCvP6ZUk?si=gTFdUmiWpknLIkiB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;height:100%"></iframe>
+    </div>
+    <div>
+      <div class="section-tag">Nuestra Historia</div>
+      <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2rem;line-height:1.1;text-transform:uppercase;color:#111;margin-bottom:1rem">De la escena musical a la acción cultural</h2>
+      <p style="font-size:0.9rem;color:#666;line-height:1.8;margin-bottom:1rem">Pornomotora comenzó como un proyecto musical independiente, desarrollando un lenguaje propio que integra exploración electrónica, instrumentos acústicos y experimentación escénica. Su recorrido en escenarios nacionales e internacionales permitió adquirir experiencia en producción musical, montaje técnico, circulación y articulación con diversos públicos.</p>
+      <p style="font-size:0.9rem;color:#666;line-height:1.8">Con el tiempo, el proyecto entendió que la experiencia escénica podía convertirse en una herramienta de mediación cultural. Así nació la Fundación Pornomotora: un espacio que transforma el conocimiento artístico en procesos formativos, laboratorios de creación y proyectos de circulación con impacto territorial.</p>
+    </div>
+  </div>
+</div>
+
+  <div class="section-white">
+    <div class="container">
+      <div class="section-tag">Enfoque Cultural</div>
+      <h2 class="title">Nuestros principios</h2>
+      <div class="principles">
+        <div class="principle"><div class="principle-num">01</div><h3>Circulación</h3><p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7">Como intercambio cultural. Cada gira, cada presentación es una oportunidad de diálogo entre culturas y territorios diversos.</p></div>
+        <div class="principle"><div class="principle-num">02</div><h3>Creación Colectiva</h3><p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7">Como metodología. El arte no se impone, se co-crea con las comunidades, integrando saberes locales y tecnología.</p></div>
+        <div class="principle"><div class="principle-num">03</div><h3>Territorio</h3><p style="font-size:0.88rem;color:var(--text-muted);line-height:1.7">Como fuente de identidad. Cada lugar tiene su propia frecuencia sonora y visual, su propia voz que merece ser amplificada.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#61080f070e2107140f050002080e0f110e130f0e0c0e150e13004f0e1306"><span class="__cf_email__" data-cfemail="d6bfb8b0b996b0a3b8b2b7b5bfb9b8a6b9a4b8b9bbb9a2b9a4b7f8b9a4b1">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== PROYECTOS ===================== -->
+<div id="page-proyectos" class="page">
+  <div class="page-hero" style="min-height:40vh">
+    <div class="page-hero-bg" style="background:#3D5166"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero-overlay" style="background:rgba(0,0,0,0.55)"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">
+    <div class="page-hero-content">
+      <div class="section-tag">Lo que hacemos</div>
+      <h1 class="page-title">PROYECTOS</h1>
+      <p class="page-subtitle">Exploración del territorio, la música y la creación colectiva.</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container" style="max-width:70%">
+      <div style="display:flex;flex-direction:column;gap:2.5rem">
+
+        <div class="card" onclick="showPage('proyecto-frecuencia')" style="display:grid;grid-template-columns:1fr 1fr;padding:0;border:1px solid var(--border);overflow:hidden">
+          <div style="overflow:hidden;aspect-ratio:7/4;background:#1a1208"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NSMLqPFgKoZOUDcM.jpg') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div style="padding:3.5rem;display:flex;flex-direction:column;justify-content:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-bottom:1.5rem"></div>
+            <div class="card-title" style="font-size:2.2rem;margin-bottom:0.5rem;color:var(--dark)">Frecuencia Origen</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem">EL TERRITORIO COMO INSTRUMENTO</div>
+            <p class="card-desc" style="font-size:0.95rem;margin-bottom:2rem;line-height:1.7">Plataforma de circulación y creación territorial de RUA MKL.</p>
+            <span class="card-link" style="font-size:0.85rem">Ver proyecto →</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="showPage('proyecto-navegantes')" style="display:grid;grid-template-columns:1fr 1fr;padding:0;border:1px solid var(--border);overflow:hidden">
+          <div style="overflow:hidden;aspect-ratio:7/4;background:#1a1208"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/pcUqAEWIJZTCuaeO.JPG') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div style="padding:3.5rem;display:flex;flex-direction:column;justify-content:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-bottom:1.5rem"></div>
+            <div class="card-title" style="font-size:2.2rem;margin-bottom:0.5rem">Navegantes Sonoros</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem">EL SONIDO COMO HERRAMIENTA DE ENCUENTRO Y TRANSFORMACIÓN</div>
+            <p class="card-desc" style="font-size:0.95rem;margin-bottom:2rem;line-height:1.7">Un proceso integral de creación, formación y circulación artística que conecta personas, territorios e historias a través del arte sonoro.</p>
+            <span class="card-link" style="font-size:0.85rem">Ver proyecto →</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="showPage('proyecto-rua')" style="display:grid;grid-template-columns:1fr 1fr;padding:0;border:1px solid var(--border);overflow:hidden">
+          <div style="overflow:hidden;aspect-ratio:7/4;background:#1a1208"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/JWMfQvSasrLfdMeW.png') center/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div style="padding:3.5rem;display:flex;flex-direction:column;justify-content:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-bottom:1.5rem"></div>
+            <div class="card-title" style="font-size:2.2rem;margin-bottom:0.5rem">RUA MKL</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem">ELECTRÓNICA HÍBRIDA CON VOCACIÓN GLOBAL</div>
+            <p class="card-desc" style="font-size:0.95rem;margin-bottom:2rem;line-height:1.7">Proyecto artístico de música electrónica híbrida.</p>
+            <span class="card-link" style="font-size:0.85rem">Ver proyecto →</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="showPage('proyecto-marimbero')" style="display:grid;grid-template-columns:1fr 1fr;padding:0;border:1px solid var(--border);overflow:hidden">
+          <div style="overflow:hidden;aspect-ratio:7/4;background:#1a1208"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://i.imgur.com/tTuWdsG.jpg') center 15%/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div style="padding:3.5rem;display:flex;flex-direction:column;justify-content:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-bottom:1.5rem"></div>
+            <div class="card-title" style="font-size:2.2rem;margin-bottom:0.5rem">El Marimbero de los 100 Años</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem">ARCHIVO VIVO DE LA MEMORIA MUSICAL</div>
+            <p class="card-desc" style="font-size:0.95rem;margin-bottom:2rem;line-height:1.7">Documental sobre el maestro Guillermo Ríos Benítez, un siglo de memoria musical del Pacífico colombiano.</p>
+            <span class="card-link" style="font-size:0.85rem">Ver proyecto →</span>
+          </div>
+        </div>
+
+        <div class="card" onclick="showPage('proyecto-cantadoras')" style="display:grid;grid-template-columns:1fr 1fr;padding:0;border:1px solid var(--border);overflow:hidden">
+          <div style="overflow:hidden;aspect-ratio:7/4;background:#1a1208"><div class="proj-card-img" style="width:100%;height:100%;background:url('https://i.imgur.com/DbbDdL7.jpg') center 35%/cover no-repeat;transition:transform 0.5s ease"></div></div>
+          <div style="padding:3.5rem;display:flex;flex-direction:column;justify-content:center">
+            <div style="width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-bottom:1.5rem"></div>
+            <div class="card-title" style="font-size:2.2rem;margin-bottom:0.5rem">Cantadoras</div>
+            <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--gray);margin-bottom:1.2rem">EL ALMA DE UN PUEBLO</div>
+            <p class="card-desc" style="font-size:0.95rem;margin-bottom:2rem;line-height:1.7">Festivales y encuentros que reúnen a mujeres cantadoras del Caribe y del Pacífico colombiano, portadoras de memoria ancestral.</p>
+            <span class="card-link" style="font-size:0.85rem">Ver proyecto →</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9dfccd7ddd8dad0d6d7c9d6cbd7d6d4d6cdd6cbd897d6cbde"><span class="__cf_email__" data-cfemail="640d0a020b2402110a0005070d0b0a140b160a0b090b100b16054a0b1603">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== PROYECTO: FRECUENCIA ORIGEN ===================== -->
+<div id="page-proyecto-frecuencia" class="page">
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/pmOEpjoikEDdZaIU.JPG') 70% 30%/cover no-repeat"></div>
+    <div class="page-hero-overlay"></div>    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyectos')">← Volver a proyectos</a>
+      <div class="section-tag">Proyecto</div>
+      <h1 class="page-title">FRECUENCIA<br>ORIGEN</h1>
+      <p class="page-subtitle">El territorio como instrumento</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="body-text" style="margin-bottom:1.2rem">Frecuencia Origen es la plataforma de circulación y creación territorial de RUA MKL. Nace como una evolución natural del recorrido artístico del proyecto y propone que cada presentación sea precedida por un proceso de mediación e intercambio con la comunidad anfitriona.</p>
+          <p class="body-text" style="margin-bottom:1.2rem">Antes de cada concierto se desarrolla "Frecuencia Mediación", un espacio de encuentro con jóvenes, músicos y agentes culturales del territorio. Allí se comparten intereses, saberes y experiencias en torno a producción musical, DJ, fotografía y registro audiovisual.</p>
+          <p class="body-text">El resultado es una obra que no solo se presenta en el territorio, sino que nace de él.</p>
+        </div>
+        <div class="img-band" style="height:350px;border-radius:4px;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/zdvDilsdaRDWfJoc.jpg') center/cover no-repeat"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-band" style="height:975px;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/ciZvAFuWqhQJvAzf.jpg') center bottom/100% auto no-repeat;background-color:#0a0a0a"><div class="img-band-overlay"></div></div>
+
+  <div class="section-dark">
+    <div class="container" style="padding:1.5rem 0">
+      <div class="section-tag">Impacto Territorial</div>
+      <h2 class="title">Territorios activados</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">Frecuencia Origen se ha desarrollado en distintos territorios de Colombia, incluyendo procesos en el Pacífico Norte, el Pacífico Sur, el Caribe colombiano y diversas localidades de Bogotá.</p>
+        <p class="body-text">En estos espacios se ha trabajado con población afrodescendiente e indígena, generando encuentros interculturales donde la música electrónica dialoga con saberes ancestrales, prácticas comunitarias y memorias territoriales.</p>
+      </div>
+      <div class="stats-row">
+        <div class="stat-item"><span class="stat-num counter" data-target="12" data-suffix="+">12+</span><span class="stat-label">Años de trayectoria</span></div>
+        <div class="stat-item"><span class="stat-num counter" data-target="850" data-suffix="+">850+</span><span class="stat-label">Jóvenes impactados</span></div>
+        <div class="stat-item"><span class="stat-num counter" data-target="4" data-suffix="">4</span><span class="stat-label">Proyectos activos</span></div>
+        <div class="stat-item"><span class="stat-num counter" data-target="5" data-suffix="">5</span><span class="stat-label">Territorios activados</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#741d1a121b3412011a1015171d1b1a041b061a1b191b001b06155a1b0613"><span class="__cf_email__" data-cfemail="b6dfd8d0d9f6d0c3d8d2d7d5dfd9d8c6d9c4d8d9dbd9c2d9c4d798d9c4d1">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== PROYECTO: NAVEGANTES SONOROS ===================== -->
+<div id="page-proyecto-navegantes" class="page">
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/pcUqAEWIJZTCuaeO.JPG') center/cover no-repeat"></div>
+    <div class="page-hero-overlay"></div>    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyectos')">← Volver a proyectos</a>
+      <div class="section-tag">Proyecto</div>
+      <h1 class="page-title">NAVEGANTES<br>SONOROS</h1>
+      <p class="page-subtitle">Tu Hoja de Ruta en el Ecosistema Musical</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="section-tag">El proyecto</div>
+          <h2 class="title">Tu hoja de ruta<br>musical</h2>
+          <p class="body-text" style="margin-bottom:1.2rem">Navegantes Sonoros es un espacio de encuentro, creación y transformación donde el sonido se convierte en una herramienta de poder. Más que una plataforma de formación, somos una bitácora estratégica diseñada para que artistas emergentes y proyectos comunitarios profesionalicen su carrera desde la realidad del mercado independiente.</p>
+          <p class="body-text">Nuestra metodología nace de la experiencia de Christian de la Espriella —productor musical y motor creativo de Pornomotora y RUA MKL—.</p>
+        </div>
+        <div>
+          <div class="section-tag">Filosofía</div>
+          <h2 class="title">Soberanía<br>tecnológica</h2>
+          <p class="body-text" style="margin-bottom:1.5rem">Creemos que el talento no debe verse limitado por el presupuesto. Te enseñamos a alcanzar estándares de calidad competitivos utilizando herramientas y software que, en su 99%, son gratuitos y de libre acceso.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-band">
+    <blockquote>"El mapa está trazado. Es momento de navegar."</blockquote>
+  </div>
+
+  <div style="background:#f5f5f5;padding:4rem 5%">
+    <div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center">
+      <div style="aspect-ratio:16/9;overflow:hidden;border-radius:4px">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/6a1FKmnb00U?si=QcBBeVnRxVAYgpmn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="display:block;width:100%;height:100%"></iframe>
+      </div>
+      <div>
+        <div style="font-size:0.65rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:#3D5166;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.5rem"><span style="width:7px;height:7px;border-radius:50%;background:#3D5166;display:inline-block"></span>Navegantes Sonoros</div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2rem;line-height:1.1;text-transform:uppercase;color:#111;margin-bottom:1rem">Más que formación,<br>una bitácora</h2>
+        <p style="font-size:0.9rem;color:#666;line-height:1.8">Nuestra metodología nace de la experiencia real del mercado independiente. Te enseñamos a navegar el ecosistema musical con herramientas accesibles y conocimiento práctico.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-dark">
+    <div class="container">
+      <div class="section-tag">Información</div>
+      <h2 class="title">Navegantes Sonoros</h2>
+      <div class="dark-cards">
+        <div class="dark-card">
+          <div class="dark-card-icon">📅</div>
+          <h4>Cuándo</h4>
+          <p>Todos los jueves de marzo, abril y mayo</p>
+          <div class="time-highlight">6 a 9 pm</div>
+        </div>
+        <div class="dark-card" style="border-left:1px solid var(--border-dark)">
+          <div class="dark-card-icon">📍</div>
+          <h4>Dónde</h4>
+          <p>Centro Nacional de las Artes Delia Zapata Olivella</p>
+          <p style="margin-top:0.4rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Calle 11 # 5 – 60</p>
+        </div>
+        <div class="dark-card" style="border-left:1px solid var(--border-dark)">
+          <div class="dark-card-icon">🎟</div>
+          <h4>Entrada</h4>
+          <p>Entrada libre</p>
+          <p style="margin-top:0.3rem;font-size:0.8rem;color:rgba(255,255,255,0.3)">Solo con inscripción previa</p>
+          <a class="btn btn-cyan" onclick="showPage('inscripcion')" style="margin-top:1.2rem;display:inline-flex">Inscríbete aquí ↗</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0A0A0A;padding:3rem 5%;text-align:center">
+    <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:1.2rem">Ya eres parte de Navegantes Sonoros?</p>
+    <a class="btn btn-cyan" onclick="showPage('aula')" style="cursor:pointer;display:inline-flex">Aula Navegantes Sonoros →</a>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7d1c2d9d3d6d4ded8d9c7d8c5d9d8dad8c3d8c5d699d8c5d0"><span class="__cf_email__" data-cfemail="1a73747c755a7c6f747e7b797375746a7568747577756e75687b3475687d">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== PROYECTO: RUA MKL ===================== -->
+<div id="page-proyecto-rua" class="page">
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/BwEqKrZpnIsuobRf.JPG') center/cover no-repeat"></div>
+    <div class="page-hero-overlay"></div>    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyectos')">← Volver a proyectos</a>
+      <div class="section-tag">Proyecto Artístico</div>
+      <h1 class="page-title">RUA MKL</h1>
+      <p class="page-subtitle">Electrónica híbrida con vocación global</p>
+    </div>
+  </div>
+
+  <div class="marquee-wrap" style="border-bottom:1px solid #222">
+    <div class="marquee-inner"><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span><span>BREAKBEAT · DRUM N BASS · WORLD MUSIC · BOGOTÁ · ELECTRÓNICA HÍBRIDA · CONCIERTO EN VIVO · </span></div>
+  </div>
+
+  <div class="section-white">
+    <div class="container">
+      <div style="max-width:720px">
+        <p class="body-text" style="margin-bottom:1.2rem">RUA MKL es un proyecto artístico creado en el marco de la Fundación Pornomotora. Se trata de una propuesta de música electrónica híbrida que integra máquinas, computador, interfaz, batería e instrumentos de viento en formato de concierto en vivo.</p>
+        <p class="body-text" style="margin-bottom:1.2rem">RUA MKL ha participado en importantes festivales y encuentros artísticos internacionales y nacionales, consolidando una propuesta escénica de alta calidad técnica y narrativa visual.</p>
+        <p class="body-text" style="margin-bottom:2.5rem">Más allá del espectáculo, RUA MKL entiende la música como un proceso vivo de intercambio y construcción colectiva.</p>
+        <a class="btn btn-dark" href="https://www.ruas-diamond.com" target="_blank">Visitar web oficial de RUA MKL →</a>      </div>
+    </div>
+  </div>
+
+  <div class="img-band" style="height:480px;background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/BwEqKrZpnIsuobRf.JPG') center/cover no-repeat"><div class="img-band-overlay"></div></div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#1970777f76597f6c777d787a70767769766b777674766d766b7837766b7e"><span class="__cf_email__" data-cfemail="a8c1c6cec7e8ceddc6ccc9cbc1c7c6d8c7dac6c7c5c7dcc7dac986c7dacf">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================== PROYECTO: EL MARIMBERO ===================== -->
+<div id="page-proyecto-marimbero" class="page">
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background:url('https://i.imgur.com/tTuWdsG.jpg') center 20%/cover no-repeat"></div>
+    <div class="page-hero-overlay"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">
+    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyectos')">← Volver a proyectos</a>
+      <div class="section-tag">Documental</div>
+      <h1 class="page-title">EL MARIMBERO<br>DE LOS 100 AÑOS</h1>
+      <p class="page-subtitle">Un archivo vivo de la memoria musical del Pacífico colombiano</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+  <div class="section-white">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <p class="body-text" style="margin-bottom:1.2rem">El 28 de febrero de 2011, en Guapi, Cauca, sucedió algo que difícilmente puede repetirse en la historia de la música tradicional del Pacífico colombiano. Ese día, el maestro Guillermo Ríos Benítez, intérprete y constructor de marimbas nacido en Saija, celebró su cumpleaños número cien tocando la marimba frente a un pequeño grupo de músicos, cantadoras y amigos.</p>
+          <p class="body-text" style="margin-bottom:1.2rem">La Fundación Pornomotora acompañó y registró este encuentro irrepetible, dando origen al documental <em>El Marimbero de los 100 años</em>, una obra que captura uno de los últimos momentos musicales de uno de los grandes portadores de saber de la tradición de marimba del Pacífico sur colombiano.</p>
+          <p class="body-text">Guillermo Ríos llegó a Guapi muchos años después de haber nacido en Saija, un territorio de ríos y selva donde la música y la vida cotidiana están profundamente entrelazadas. Allí aprendió a tocar marimba siendo niño, escuchando a los mayores y observando atentamente los movimientos de los marimberos.</p>
+        </div>
+        <div class="img-band" style="height:400px;border-radius:4px;background:url('https://i.imgur.com/jj2yhIZ.jpg') center/cover no-repeat"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-band" style="height:500px;background:url('https://i.imgur.com/R6LWfcf.jpg') center/cover no-repeat"><div class="img-band-overlay"></div></div>
+
+  <div class="section-light">
+    <div class="container">
+      <div class="section-tag">El Oficio</div>
+      <h2 class="title">Constructor de marimbas</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">Guillermo no solo fue intérprete. También fue constructor de marimbas. Aprendió el oficio conversando con los viejos sabedores, quienes le enseñaron que la construcción del instrumento se sostiene sobre cuatro pilares fundamentales: la luna, el agua, el oído y el machete.</p>
+        <p class="body-text">Saber en qué fase de la luna cortar la palma de chonta, reconocer el bambú adecuado para los resonadores y afinar cada tabla guiado por el oído eran conocimientos transmitidos de generación en generación en las comunidades del Pacífico. A lo largo de su vida, Guillermo fue pescador, agricultor, destilador de alcohol artesanal y lanchero. Pero siempre fue, ante todo, un hombre de marimba.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-dark">
+    <div class="container" style="padding:2.5rem 0">
+      <div class="section-tag">El Encuentro</div>
+      <h2 class="title">Un siglo de música en un solo día</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">El 28 de febrero de 2011, Guillermo decidió cumplir uno de los sueños que había guardado durante toda su vida: grabar su primer álbum el día exacto en que cumplía cien años. Convocó a varios músicos tradicionales de la región. Entre ellos estaba Pacho Torres, percusionista del bombo golpeador, y Don Silvino Mina, marimbero y constructor de instrumentos.</p>
+        <p class="body-text">Si se sumaban las edades de los músicos principales que participaron en esa sesión, el resultado superaba los quinientos años de experiencia musical acumulada. Interpretaron bambucos viejos, currulaos, jugas y patacorés con una fuerza que parecía desafiar al tiempo.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-white">
+    <div class="container">
+      <div style="max-width:720px">
+        <div class="section-tag">Patrimonio</div>
+        <h2 class="title">Memoria viva del Pacífico</h2>
+        <p class="body-text" style="margin-bottom:1.2rem">La marimba de chonta y los cantos tradicionales del Pacífico sur de Colombia fueron reconocidos en 2015 como Patrimonio Cultural Inmaterial de la Humanidad por la UNESCO, un reconocimiento que confirma la importancia de preservar estas prácticas culturales.</p>
+        <p class="body-text" style="margin-bottom:1.2rem">El documental <em>El Marimbero de los 100 años</em> es mucho más que una película. Es un fragmento de la memoria musical del país. Un registro del momento en que un hombre que había dedicado cien años a la marimba dejó su último testimonio sonoro rodeado de amigos, músicos y cantadoras.</p>
+        <p class="body-text" style="font-style:italic;color:var(--cyan);font-weight:600">Porque en ese instante quedaron reunidos en un solo lugar la historia de un hombre, la memoria de una tradición y el sonido de un territorio entero.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#b9d0d7dfd6f9dfccd7ddd8dad0d6d7c9d6cbd7d6d4d6cdd6cbd897d6cbde"><span class="__cf_email__" data-cfemail="e58c8b838aa583908b8184868c8a8b958a978b8a888a918a9784cb8a9782">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+
+<!-- ===================== PROYECTO: CANTADORAS ===================== -->
+<div id="page-proyecto-cantadoras" class="page">
+  <div class="page-hero">
+    <div class="page-hero-bg" style="background:url('https://i.imgur.com/DbbDdL7.jpg') center 25%/cover no-repeat"></div>
+    <div class="page-hero-overlay"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">
+    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyectos')">&#8592; Volver a proyectos</a>
+      <div class="section-tag">Proyecto Cultural</div>
+      <h1 class="page-title">CANTADORAS</h1>
+      <p class="page-subtitle">El alma de un pueblo</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACI&#211;N PORNOMOTORA</b><b style="color:#fff"> &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </b></span></div>
+  </div>
+
+  <div class="section-white">
+    <div class="container">
+      <div class="two-col">
+        <div>
+          <div class="section-tag">El proyecto</div>
+          <h2 class="title">La m&#250;sica que<br>nos conecta</h2>
+          <p class="body-text" style="margin-bottom:1.2rem">La Fundaci&#243;n Pornomotora ha concebido y construido espacios donde la m&#250;sica nos conecta. A trav&#233;s de festivales y encuentros cuidadosamente curados, ha reunido a mujeres cantadoras del Caribe y del Pac&#237;fico colombiano &#8212;portadoras de una memoria ancestral&#8212; para activar, desde la escena, el patrimonio inmaterial que habita en sus voces, en sus manos y en sus territorios.</p>
+          <p class="body-text">Estos encuentros han sido llevados a universidades, auditorios y emisoras, no como espect&#225;culos aislados, sino como experiencias de transmisi&#243;n viva. All&#237;, los cantos de marimba de chonta, las narraciones, las recetas tradicionales y los saberes medicinales se entrelazan para dar forma a una comprensi&#243;n m&#225;s profunda de lo que somos como pa&#237;s.</p>
+        </div>
+        <div class="img-band" style="height:400px;border-radius:4px;background:url('https://i.imgur.com/wgucTXI.jpg') center/cover no-repeat"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="img-band" style="height:500px;background:url('https://i.imgur.com/kypqVV9.jpg') center top/cover no-repeat"><div class="img-band-overlay"></div></div>
+
+  <div class="section-light">
+    <div class="container">
+      <div class="section-tag">Visi&#243;n</div>
+      <h2 class="title">Puentes entre territorios</h2>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:1.5rem">
+        <p class="body-text">Cada proyecto de la Fundaci&#243;n tiene metas de visibilizaci&#243;n consciente, una apuesta por dignificar y amplificar conocimientos que hist&#243;ricamente han sido marginados, pero que contienen una potencia est&#233;tica, espiritual y comunitaria indispensable para el presente.</p>
+        <p class="body-text">Pornomotora no solo produce festivales. Construye puentes entre territorios, saberes y p&#250;blicos. Convoca la escucha, la memoria y el reconocimiento, entendiendo que en cada canto, en cada receta y en cada historia, vive una forma de resistencia y de futuro.</p>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:#0A0A0A;padding:4rem 5%">
+    <div style="max-width:85%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem">
+      <div class="img-band" style="height:500px;border-radius:4px;background:url('https://i.imgur.com/4Ey84qY.jpg') center/cover no-repeat"></div>
+      <div class="img-band" style="height:500px;border-radius:4px;background:url('https://i.imgur.com/b0OQcRX.jpg') center/cover no-repeat"></div>
+    </div>
+  </div>
+
+  <div class="section-white">
+    <div class="container">
+      <div style="max-width:720px">
+        <p class="body-text" style="font-style:italic;color:var(--cyan);font-weight:600;font-size:1.1rem">En cada canto, en cada receta y en cada historia, vive una forma de resistencia y de futuro.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span><span>FUNDACI&#211;N PORNOMOTORA &#183; CULTURA &#183; CREACI&#211;N &#183; TERRITORIO &#183; FRECUENCIA ORIGEN &#183; RUA MKL &#183; </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundaci&#243;n Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACI&#211;N<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creaci&#243;n y territorio. M&#225;s de 20 a&#241;os transformando la experiencia art&#237;stica en acci&#243;n cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegaci&#243;n</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Qui&#233;nes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galer&#237;a</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL &#8212; Web Oficial</a></li>
+          <li><a href="mailto:info@fundacionpornomotora.org">info@fundacionpornomotora.org</a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogot&#225;, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Fundaci&#243;n Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogot&#225;, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== GALERÍA ===================== -->
+<div id="page-galeria" class="page">
+  <div class="page-hero" style="min-height:40vh">
+    <div class="page-hero-bg" style="background:#3D5166"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero-overlay" style="background:rgba(0,0,0,0.55)"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">    <div class="page-hero-content">
+      <div class="section-tag">Multimedia</div>
+      <h1 class="page-title">GALERÍA</h1>
+      <p class="page-subtitle">Imágenes y momentos de nuestros proyectos y activaciones territoriales.</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container">
+      <div style="display:flex;gap:2rem;margin-bottom:2rem;border-bottom:2px solid var(--border);padding-bottom:1rem">
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);border-bottom:2px solid var(--cyan);padding-bottom:calc(1rem + 2px);margin-bottom:-2px">Fotos (20)</span>
+        <span style="font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:0.78rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gray)">Videos (Próximamente)</span>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/BlGQWUzxsRuDZxdr.JPG') center/cover no-repeat"></div><div class="gallery-cap">Frecuencia Origen — Activación territorial</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/fhalUNmuaHnXOnGv.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Paisaje del Pacífico</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NidZDcMBcdqDBvtd.JPG') center/cover no-repeat"></div><div class="gallery-cap">Comunidad — Encuentro territorial</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/dCpwGaSlsrLJafgK.JPG') center/cover no-repeat"></div><div class="gallery-cap">Mediación — Proceso creativo</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/kQyVaVLPrmkWclad.JPG') center/cover no-repeat"></div><div class="gallery-cap">Mediación — Intercambio cultural</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/vHtJTtlJQwLcXfkc.JPG') center/cover no-repeat"></div><div class="gallery-cap">Frecuencia Origen — En vivo</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/zcbvKIKToHGFYXYx.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Comunidad</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/giiwGRpHEtalojSp.JPG') center/cover no-repeat"></div><div class="gallery-cap">Mediación — Taller comunitario</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/HYcTqBHvRxeySMFR.JPG') center/cover no-repeat"></div><div class="gallery-cap">Concierto — Frecuencia Origen</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/SqcizbGPJxFuzPlO.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Naturaleza</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/gcSngoWqVBpHoSPi.JPG') center/cover no-repeat"></div><div class="gallery-cap">Comunidad — Vida cotidiana</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/oAvgxJQtDgpGFFzi.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Paisaje</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/YOKAZJGQpvLJxmij.JPG') center/cover no-repeat"></div><div class="gallery-cap">RUA MKL — Show en vivo</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/fxTwktpOCIYERuTK.JPG') center/cover no-repeat"></div><div class="gallery-cap">RUA MKL — Concierto</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/XfGKsElKMNiWQlJf.JPG') center/cover no-repeat"></div><div class="gallery-cap">Frecuencia Origen — Performance</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/fMshQeXOZgLSlbzv.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Comunidad</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/RDEOZucyOvasbPQD.JPG') center/cover no-repeat"></div><div class="gallery-cap">Mediación — Encuentro</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/IeOMgFhWIzWHXISx.JPG') center/cover no-repeat"></div><div class="gallery-cap">Frecuencia Origen — Activación</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/zCIoseHXQGkuJdGm.JPG') center/cover no-repeat"></div><div class="gallery-cap">Territorio — Vida</div></div>
+        <div class="gallery-item"><div class="gallery-inner" style="background:url('https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/gJIjpnKwmnVqeNkM.JPG') center/cover no-repeat"></div><div class="gallery-cap">Frecuencia Origen — Cierre</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#afc6c1c9c0efc9dac1cbceccc6c0c1dfc0ddc1c0c2c0dbc0ddce81c0ddc8"><span class="__cf_email__" data-cfemail="dcb5b2bab39cbaa9b2b8bdbfb5b3b2acb3aeb2b3b1b3a8b3aebdf2b3aebb">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== CONTACTO ===================== -->
+<div id="page-contacto" class="page">
+  <div class="page-hero" style="min-height:40vh">
+    <div class="page-hero-bg" style="background:#3D5166"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero-overlay" style="background:rgba(0,0,0,0.55)"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">    <div class="page-hero-content">
+      <div class="section-tag">Conecta</div>
+      <h1 class="page-title">CONTACTO</h1>
+      <p class="page-subtitle">¿Quieres colaborar, participar o saber más?</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+
+  <div class="section-white">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <p style="font-size:0.9rem;color:var(--text-muted);margin-bottom:2rem;line-height:1.7">¿Quieres colaborar, participar en nuestros proyectos o saber más sobre la Fundación Pornomotora? Escríbenos.</p>
+          <div class="form-field"><label>Nombre</label><input type="text" placeholder="Tu nombre completo"></div>
+          <div class="form-field"><label>Email</label><input type="email" placeholder="tu@email.com"></div>
+          <div class="form-field"><label>Asunto</label><input type="text" placeholder="¿En qué podemos ayudarte?"></div>
+          <div class="form-field"><label>Mensaje</label><textarea placeholder="Cuéntanos sobre tu proyecto, colaboración o consulta..."></textarea></div>
+          <button class="btn btn-dark" style="width:100%;justify-content:center;border-radius:50px">Enviar mensaje →</button>
+        </div>
+        <div>
+          <div class="contact-info-block">
+            <div class="contact-lbl">Email</div>
+            <div class="contact-val"><a href="/cdn-cgi/l/email-protection#076e696168476172696366646e686977687569686a687368756629687560"><span class="__cf_email__" data-cfemail="422b2c242d0224372c2623212b2d2c322d302c2d2f2d362d30236c2d3025">[email&#160;protected]</span></a></div>
+          </div>
+          <div class="contact-info-block">
+            <div class="contact-lbl">Ubicación</div>
+            <div class="contact-val">Bogotá, Colombia</div>
+          </div>
+          <div class="contact-info-block">
+            <div class="contact-lbl">Web RUA MKL</div>
+            <div class="contact-val"><a href="https://www.ruas-diamond.com" target="_blank">www.ruas-diamond.com</a></div>
+          </div>
+          <div style="padding:1.5rem;background:var(--light);border:1px solid var(--border);border-radius:4px;margin-top:1rem">
+            <p style="font-size:0.85rem;color:var(--text-muted);line-height:1.7">Si deseas colaborar con la Fundación Pornomotora, participar en nuestros proyectos territoriales o proponer alianzas, no dudes en escribirnos. Respondemos en un plazo de 48 horas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundación Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACIÓN<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creación y territorio. Más de 20 años transformando la experiencia artística en acción cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegación</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Quiénes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galería</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL — Web Oficial</a></li>
+          <li><a href="/cdn-cgi/l/email-protection#ea83848c85aa8c9f848e8b898385849a8598848587859e85988bc485988d"><span class="__cf_email__" data-cfemail="f59c9b939ab593809b9194969c9a9b859a879b9a989a819a8794db9a8792">[email&#160;protected]</span></a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogotá, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Fundación Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogotá, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<!-- ===================== INSCRIPCIÓN NAVEGANTES ===================== -->
+<div id="page-inscripcion" class="page">
+  <div style="background:#0A0A0A;min-height:100vh;margin-top:61px;position:relative;overflow:hidden">
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:fixed;left:50%;top:50%;transform:translate(-50%,-50%);width:500px;opacity:0.06;z-index:0;pointer-events:none">
+    <div style="position:relative;z-index:1;max-width:70%;margin:0 auto;padding:2.5rem 0 4rem">
+
+      <a onclick="showPage('proyecto-navegantes')" style="font-size:0.8rem;color:var(--cyan);cursor:pointer;text-decoration:none;display:inline-block;margin-bottom:2rem">← Volver al proyecto</a>
+
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:0.5rem">
+        <div style="width:10px;height:10px;border-radius:50%;background:var(--cyan)"></div>
+        <span style="font-size:0.7rem;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--cyan)">Inscripciones Abiertas</span>
+      </div>
+      <p style="font-size:0.8rem;color:rgba(255,255,255,0.4);margin-bottom:1rem">NAVEGANTES SONOROS 2</p>
+      <h1 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:900;font-size:clamp(2.5rem,6vw,4rem);color:#fff;text-transform:uppercase;margin-bottom:0.5rem">INSCRIPCIÓN</h1>
+      <p style="font-size:0.95rem;color:rgba(255,255,255,0.5);font-style:italic;margin-bottom:2.5rem">Tu hoja de ruta en el ecosistema musical</p>
+
+      <div id="step-nav" style="display:flex;align-items:center;gap:0;margin-bottom:3rem">
+        <div class="step-ind" data-step="1" style="display:flex;align-items:center;gap:0.5rem;cursor:pointer"><span class="sn" style="width:28px;height:28px;border-radius:4px;background:var(--cyan);color:#000;font-weight:800;font-size:0.75rem;display:flex;align-items:center;justify-content:center">01</span><span class="sl" style="font-size:0.85rem;font-weight:600;color:#fff">Datos Personales</span></div>
+        <div style="flex:0 0 40px;height:2px;background:rgba(255,255,255,0.1);margin:0 0.8rem"></div>
+        <div class="step-ind" data-step="2" style="display:flex;align-items:center;gap:0.5rem;cursor:pointer"><span class="sn" style="width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);font-weight:800;font-size:0.75rem;display:flex;align-items:center;justify-content:center">02</span><span class="sl" style="font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.4)">Perfil Artístico</span></div>
+        <div style="flex:0 0 40px;height:2px;background:rgba(255,255,255,0.1);margin:0 0.8rem"></div>
+        <div class="step-ind" data-step="3" style="display:flex;align-items:center;gap:0.5rem;cursor:pointer"><span class="sn" style="width:28px;height:28px;border-radius:4px;background:rgba(255,255,255,0.15);color:rgba(255,255,255,0.4);font-weight:800;font-size:0.75rem;display:flex;align-items:center;justify-content:center">03</span><span class="sl" style="font-size:0.85rem;font-weight:600;color:rgba(255,255,255,0.4)">Motivación</span></div>
+      </div>
+
+      <div id="fs1" class="fstep">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:0.3rem">Datos Personales</h2>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2rem">Cuéntanos quién eres</p>
+        <div style="margin-bottom:1.5rem"><label class="flbl">Nombre Completo <span style="color:var(--cyan)">*</span></label><input type="text" id="i-nombre" placeholder="Tu nombre completo" class="finput"></div>
+        <div style="margin-bottom:1.5rem"><label class="flbl">Tipo de identificación <span style="color:var(--cyan)">*</span></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem"><label class="fopt"><input type="radio" name="i-tipoid" value="Cédula de ciudadanía" style="accent-color:var(--cyan)"> Cédula de ciudadanía</label><label class="fopt"><input type="radio" name="i-tipoid" value="Cédula de extranjería" style="accent-color:var(--cyan)"> Cédula de extranjería</label><label class="fopt"><input type="radio" name="i-tipoid" value="Tarjeta de identidad" style="accent-color:var(--cyan)"> Tarjeta de identidad</label><label class="fopt"><input type="radio" name="i-tipoid" value="Pasaporte" style="accent-color:var(--cyan)"> Pasaporte</label><label class="fopt"><input type="radio" name="i-tipoid" value="Otro" style="accent-color:var(--cyan)"> Otro</label></div></div>
+        <div style="margin-bottom:1.5rem"><label class="flbl">Número de identificación</label><input type="text" id="i-numid" placeholder="Tu número de documento" class="finput"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem"><div><label class="flbl">Edad <span style="color:var(--cyan)">*</span></label><input type="number" id="i-edad" placeholder="Tu edad" class="finput"></div><div><label class="flbl">Ciudad <span style="color:var(--cyan)">*</span></label><input type="text" id="i-ciudad" placeholder="Tu ciudad" class="finput"></div></div>
+        <div style="margin-bottom:1.5rem"><label class="flbl">Localidad <span style="color:var(--cyan)">*</span></label><input type="text" id="i-localidad" placeholder="Tu localidad" class="finput"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem"><div><label class="flbl">WhatsApp <span style="color:var(--cyan)">*</span></label><input type="tel" id="i-whatsapp" placeholder="+57 300 000 0000" class="finput"></div><div><label class="flbl">Correo electrónico <span style="color:var(--cyan)">*</span></label><input type="email" id="i-email" placeholder="tu@correo.com" class="finput"></div></div>
+        <div class="fbar"><img src="https://i.imgur.com/ndWjdj9.png" alt="" style="width:180px;opacity:0.3"><button onclick="goStep(2)" class="fbtn-next">Siguiente →</button></div>
+      </div>
+
+      <div id="fs2" class="fstep" style="display:none">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:0.3rem">Perfil Artístico</h2>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2rem">Cuéntanos sobre tu perfil creativo</p>
+        <div style="margin-bottom:1.5rem"><label class="flbl">¿Cómo te identificas dentro del proyecto? <span style="color:var(--cyan)">*</span></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem"><label class="fopt"><input type="radio" name="i-perfil" value="Productor(a) musical" style="accent-color:var(--cyan)"> Productor(a) musical</label><label class="fopt"><input type="radio" name="i-perfil" value="DJ" style="accent-color:var(--cyan)"> DJ</label><label class="fopt"><input type="radio" name="i-perfil" value="Músico(a)" style="accent-color:var(--cyan)"> Músico(a)</label><label class="fopt"><input type="radio" name="i-perfil" value="VJ/visualista" style="accent-color:var(--cyan)"> VJ/visualista</label><label class="fopt"><input type="radio" name="i-perfil" value="Gestor(a) cultural" style="accent-color:var(--cyan)"> Gestor(a) cultural</label><label class="fopt"><input type="radio" name="i-perfil" value="Interesado(a) en derechos de autor" style="accent-color:var(--cyan)"> Interesado(a) en derechos de autor</label><label class="fopt"><input type="radio" name="i-perfil" value="Marketing musical" style="accent-color:var(--cyan)"> Marketing musical</label><label class="fopt"><input type="radio" name="i-perfil" value="Otro" style="accent-color:var(--cyan)"> Otro</label></div></div>
+        <div style="margin-bottom:2rem"><label class="flbl">Nivel de experiencia <span style="color:var(--cyan)">*</span></label><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem"><label class="fopt" style="justify-content:center;font-weight:600"><input type="radio" name="i-nivel" value="Principiante" style="accent-color:var(--cyan)"> Principiante</label><label class="fopt" style="justify-content:center;font-weight:600"><input type="radio" name="i-nivel" value="Intermedio" style="accent-color:var(--cyan)"> Intermedio</label><label class="fopt" style="justify-content:center;font-weight:600"><input type="radio" name="i-nivel" value="Avanzado" style="accent-color:var(--cyan)"> Avanzado</label></div></div>
+        <div class="fbar"><img src="https://i.imgur.com/ndWjdj9.png" alt="" style="width:180px;opacity:0.3"><div style="display:flex;align-items:center;gap:1rem"><button onclick="goStep(1)" class="fbtn-prev">← Anterior</button><button onclick="goStep(3)" class="fbtn-next">Siguiente →</button></div></div>
+      </div>
+
+      <div id="fs3" class="fstep" style="display:none">
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:1.5rem;color:#fff;margin-bottom:0.3rem">Motivación</h2>
+        <p style="font-size:0.85rem;color:rgba(255,255,255,0.4);margin-bottom:2rem">Cuéntanos por qué quieres navegar</p>
+        <div style="margin-bottom:1.5rem"><label class="flbl">¿Por qué quieres ser parte de Navegantes Sonoros? <span style="color:var(--cyan)">*</span></label><textarea id="i-motivacion" rows="5" placeholder="Escribe tu motivación..." class="finput" style="resize:vertical"></textarea></div>
+        <div style="margin-bottom:2rem"><label class="flbl">¿Qué te gustaría aprender o fortalecer? <span style="color:var(--cyan)">*</span></label><div style="display:grid;grid-template-columns:1fr 1fr;gap:0.5rem"><label class="fopt"><input type="checkbox" name="i-aprender" value="Producción musical" style="accent-color:var(--cyan)"> Producción musical</label><label class="fopt"><input type="checkbox" name="i-aprender" value="Producción de eventos" style="accent-color:var(--cyan)"> Producción de eventos</label><label class="fopt"><input type="checkbox" name="i-aprender" value="Derechos de autor" style="accent-color:var(--cyan)"> Derechos de autor</label><label class="fopt"><input type="checkbox" name="i-aprender" value="Marketing" style="accent-color:var(--cyan)"> Marketing</label><label class="fopt"><input type="checkbox" name="i-aprender" value="Networking" style="accent-color:var(--cyan)"> Networking</label><label class="fopt"><input type="checkbox" name="i-aprender" value="V.J." style="accent-color:var(--cyan)"> V.J.</label></div></div>
+        <div class="fbar"><img src="https://i.imgur.com/ndWjdj9.png" alt="" style="width:180px;opacity:0.3"><div style="display:flex;align-items:center;gap:1rem"><button onclick="goStep(2)" class="fbtn-prev">← Anterior</button><button onclick="submitInsc()" class="fbtn-next">Enviar inscripción ✓</button></div></div>
+      </div>
+
+      <div id="fs-ok" style="display:none;text-align:center;padding:4rem 0">
+        <div style="width:80px;height:80px;border-radius:50%;background:var(--cyan);display:flex;align-items:center;justify-content:center;margin:0 auto 2rem;font-size:2rem;color:#000">✓</div>
+        <h2 style="font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:2rem;color:#fff;margin-bottom:1rem">¡Inscripción enviada!</h2>
+        <p style="font-size:1rem;color:rgba(255,255,255,0.5);margin-bottom:2rem;max-width:480px;margin-left:auto;margin-right:auto">Gracias por inscribirte en Navegantes Sonoros. Te contactaremos pronto con los detalles.</p>
+        <a onclick="showPage('proyecto-navegantes')" class="btn btn-cyan" style="cursor:pointer">Volver al proyecto →</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- ===================== AULA NAVEGANTES SONOROS ===================== -->
+<div id="page-aula" class="page">
+  <div class="page-hero" style="min-height:40vh">
+    <div class="page-hero-bg" style="background:#0A0A0A"></div>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="page-hero-overlay" style="background:rgba(0,0,0,0.65)"></div>
+    <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="" style="position:absolute;right:5%;bottom:3rem;width:280px;opacity:0.15;z-index:1">
+    <div class="page-hero-content">
+      <a class="back-btn" onclick="showPage('proyecto-navegantes')">&#8592; Volver a Navegantes Sonoros</a>
+      <div class="section-tag">Formaci&#243;n</div>
+      <h1 class="page-title">AULA NAVEGANTES<br>SONOROS</h1>
+      <p class="page-subtitle">Tu espacio de formaci&#243;n en audio, grabaci&#243;n y producci&#243;n musical profesional.</p>
+    </div>
+  </div>
+
+  <div style="overflow:hidden;background:#000;padding:0.55rem 0;border-top:1px solid #555;border-bottom:1px solid #555">
+    <div class="marquee-inner" style="animation-direction:reverse"><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span><span style="font-size:0.7rem;font-weight:600;letter-spacing:0.18em;padding-right:3rem"><b style="color:#00E5BF">FUNDACIÓN PORNOMOTORA</b><b style="color:#fff"> · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </b></span></div>
+  </div>
+
+  <div style="background:#0A0A0A;padding:4rem 5%">
+    <div style="max-width:900px;margin:0 auto">
+
+      <div class="aula-card">
+        <div class="aula-card-header"><span class="aula-num">01 &#8212; Bienvenida</span></div>
+        <h3 class="aula-title">Intro</h3>
+        <p class="aula-desc">Descubre el universo de Navegantes Sonoros y c&#243;mo transformaremos tu visi&#243;n t&#233;cnica y creativa en la producci&#243;n musical profesional.</p>
+        <div class="aula-video">
+          <iframe src="https://drive.google.com/file/d/1fBQXzW0xOAOEdNHFzX10ufQpL8QJHBDp/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="aula-card">
+        <div class="aula-card-header"><span class="aula-num">02 &#8212; Introducci&#243;n al Curso</span></div>
+        <h3 class="aula-title">&#191;Qu&#233; vamos a aprender?</h3>
+        <p class="aula-desc">Conoce la metodolog&#237;a, los objetivos del programa y la ruta de aprendizaje que seguiremos para potenciar tus proyectos sonoros.</p>
+        <div class="aula-video">
+          <iframe src="https://drive.google.com/file/d/1DnuScmm8vWaZ6DSFwxR9Ywxdm8hgX_Qw/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="aula-card">
+        <div class="aula-card-header"><span class="aula-num">03 &#8212; Clase 1</span></div>
+        <h3 class="aula-title">Fundamentos de Sonido y Audio Digital</h3>
+        <p class="aula-desc">Primera sesi&#243;n pr&#225;ctica: domina la naturaleza f&#237;sica del sonido y las bases esenciales para lograr mezclas con est&#225;ndar profesional.</p>
+        <div class="aula-video">
+          <iframe src="https://drive.google.com/file/d/1yB6DvsXCnPVB1iGy0VbcA5uVNloayjE1/preview" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        <div class="aula-recursos-btn" onclick="this.nextElementSibling.classList.toggle('open')">
+          &#9654; Recursos de esta clase
+        </div>
+        <div class="aula-recursos">
+          <h4>Material de clase</h4>
+          <div class="aula-recurso">
+            <span>&#128196;</span>
+            <a href="https://drive.google.com/file/d/1mqK93NFLLb7h_fd77EDa4MOxcpv1A10t/view?usp=drive_link" target="_blank">Diapositivas de la Clase (PDF)</a>
+          </div>
+          <h4 style="margin-top:1.5rem">Videos complementarios &#8212; C&#243;mo grabar en un DAW</h4>
+          <div class="aula-recurso">
+            <span>&#127916;</span>
+            <a href="https://www.youtube.com/watch?v=qb3MCzRFr4c" target="_blank">C&#243;mo grabar en Ableton</a>
+          </div>
+          <div class="aula-recurso">
+            <span>&#127916;</span>
+            <a href="https://www.youtube.com/watch?v=icl-NJFoN9w" target="_blank">C&#243;mo grabar en Reaper</a>
+          </div>
+          <div class="aula-recurso">
+            <span>&#127916;</span>
+            <a href="https://www.youtube.com/watch?v=rF3b58TxU6M" target="_blank">C&#243;mo grabar en Logic Pro</a>
+          </div>
+          <div class="aula-recurso">
+            <span>&#127916;</span>
+            <a href="https://www.youtube.com/watch?v=WdQLetCwx78" target="_blank">C&#243;mo grabar en Pro Tools</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="marquee-wrap"><div class="marquee-inner"><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span><span>FUNDACIÓN PORNOMOTORA · CULTURA · CREACIÓN · TERRITORIO · FRECUENCIA ORIGEN · RUA MKL · </span></div></div>
+<footer>
+    <video autoplay muted loop playsinline style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.12;z-index:0">
+      <source src="14218020_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="cursor:default">
+          <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663063638759/NpvKsfPRjCcVeqiH.png" alt="Fundaci&#243;n Pornomotora" style="width:55px;height:55px;border-radius:50%;object-fit:contain;opacity:0.7">
+          <div class="nav-name" style="color:rgba(255,255,255,0.7)">FUNDACI&#211;N<br>PORNOMOTORA</div>
+        </div>        <p>Cultura, creaci&#243;n y territorio. M&#225;s de 20 a&#241;os transformando la experiencia art&#237;stica en acci&#243;n cultural.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegaci&#243;n</h4>
+        <ul>
+          <li><a onclick="showPage('home')">Inicio</a></li>
+          <li><a onclick="showPage('quienes')">Qui&#233;nes Somos</a></li>
+          <li><a onclick="showPage('proyectos')">Proyectos</a></li>
+          <li><a onclick="showPage('galeria')">Galer&#237;a</a></li>
+          <li><a onclick="showPage('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Conecta</h4>
+        <ul>
+          <li><a href="https://www.ruas-diamond.com" target="_blank">RUA MKL &#8212; Web Oficial</a></li>
+          <li><a href="mailto:info@fundacionpornomotora.org">info@fundacionpornomotora.org</a></li>
+        </ul>
+        <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.25)">Bogot&#225;, Colombia</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&#169; 2026 Fundaci&#243;n Pornomotora. Todos los derechos reservados.</p>
+      <p>Bogot&#225;, Colombia</p>
+    </div>
+  </footer>
+</div>
+
+<div id="lightbox" class="lightbox" onclick="closeLightbox()">
+  <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <span class="lightbox-nav lightbox-prev" onclick="event.stopPropagation();navLightbox(-1)">&#8249;</span>
+  <img id="lightbox-img" src="" alt="">
+  <span class="lightbox-nav lightbox-next" onclick="event.stopPropagation();navLightbox(1)">&#8250;</span>
+  <div id="lightbox-cap" class="lightbox-cap"></div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function showPage(id) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  const target = document.getElementById('page-' + id);
+  if (target) { 
+    target.classList.add('active'); 
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    target.querySelectorAll('video').forEach(function(v) { v.play().catch(function(){}); });
+    if (window.location.hash.replace('#','') !== id) window.history.replaceState(null, '', '#' + id);
+  }
+  document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+  const map = { 
+    home:'nl-home', 
+    quienes:'nl-quienes', 
+    proyectos:'nl-proyectos', 
+    'proyecto-frecuencia':'nl-proyectos', 
+    'proyecto-navegantes':'nl-proyectos', 
+    'proyecto-rua':'nl-proyectos',
+    'proyecto-marimbero':'nl-proyectos', 
+    galeria:'nl-galeria', 
+    contacto:'nl-contacto',
+    inscripcion:'nl-proyectos',
+    aula:'nl-proyectos',
+    'proyecto-cantadoras':'nl-proyectos' 
+  };
+  if (map[id]) { 
+    const el = document.getElementById(map[id]); 
+    if (el) el.classList.add('active'); 
+  }
+  // Close mobile menu if open
+  const nl = document.querySelector('.nav-links');
+  if (nl) nl.style.display = '';
+}
+
+function toggleMobile() {
+  const nl = document.querySelector('.nav-links');
+  if (!nl) return;
+  nl.style.display = nl.style.display === 'flex' ? 'none' : 'flex';
+  nl.style.flexDirection = 'column';
+  nl.style.position = 'absolute';
+  nl.style.top = '100%';
+  nl.style.left = '0';
+  nl.style.right = '0';
+  nl.style.background = 'rgba(255,255,255,0.98)';
+  nl.style.padding = '1.5rem';
+  nl.style.gap = '1.5rem';
+  nl.style.borderBottom = '1px solid var(--border)';
+}
+
+function animateCounters(entries, observer) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const counters = entry.target.querySelectorAll('.counter');
+      counters.forEach(c => {
+        const target = +c.dataset.target;
+        const suffix = c.dataset.suffix || '';
+        const duration = 1200;
+        const start = performance.now();
+        c.textContent = '0' + suffix;
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const ease = 1 - Math.pow(1 - progress, 3);
+          c.textContent = Math.round(ease * target) + suffix;
+          if (progress < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      });
+      observer.unobserve(entry.target);
+    }
+  });
+}
+const counterObserver = new IntersectionObserver(animateCounters, { threshold: 0.3 });
+document.querySelectorAll('.stats-row').forEach(row => counterObserver.observe(row));
+
+var lbImages = [];
+var lbIndex = 0;
+
+document.querySelectorAll('.gallery-item').forEach(function(item) {
+  item.style.cursor = 'pointer';
+  item.addEventListener('click', function() {
+    var inner = this.querySelector('.gallery-inner');
+    var bg = inner.style.background || inner.style.backgroundImage;
+    var match = bg.match(/url\(['"]?([^'")\s]+)['"]?\)/);
+    if (match) openLightbox(match[1], this);
+  });
+});
+
+function openLightbox(url, el) {
+  lbImages = [];
+  document.querySelectorAll('.gallery-item').forEach(function(item, i) {
+    var inner = item.querySelector('.gallery-inner');
+    var bg = inner.style.background || inner.style.backgroundImage;
+    var m = bg.match(/url\(['"]?([^'")\s]+)['"]?\)/);
+    if (m) lbImages.push({ url: m[1], cap: item.querySelector('.gallery-cap') ? item.querySelector('.gallery-cap').textContent : '' });
+    if (item === el) lbIndex = lbImages.length - 1;
+  });
+  showLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+  document.getElementById('lightbox-img').src = lbImages[lbIndex].url;
+  document.getElementById('lightbox-cap').textContent = lbImages[lbIndex].cap;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  showLightboxImage();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') navLightbox(1);
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+});
+
+document.querySelectorAll('img').forEach(function(img) {
+  var src = img.src || '';
+  if (src.indexOf('tz8GOAS') > -1 || (src.indexOf('NpvKsfPRjCcVeqiH') > -1 && img.style.pointerEvents !== 'none')) {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      window.open('https://www.pornomotora.com/', '_blank');
+    });
+  }
+});
+
+function goStep(n) {
+  document.querySelectorAll('.fstep').forEach(s => s.style.display = 'none');
+  var el = document.getElementById('fs' + n);
+  if (el) el.style.display = 'block';
+  document.querySelectorAll('.step-ind').forEach(function(ind) {
+    var s = parseInt(ind.dataset.step);
+    var num = ind.querySelector('.sn');
+    var lbl = ind.querySelector('.sl');
+    if (s <= n) {
+      num.style.background = 'var(--cyan)';
+      num.style.color = '#000';
+      lbl.style.color = '#fff';
+    } else {
+      num.style.background = 'rgba(255,255,255,0.15)';
+      num.style.color = 'rgba(255,255,255,0.4)';
+      lbl.style.color = 'rgba(255,255,255,0.4)';
+    }
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function submitInsc() {
+  var formURL = 'https://docs.google.com/forms/d/e/1FAIpQLSf-p7WwICdVwj_T4pwHjGxSVs04XF6VgSpB-IcF1raMgQWKzA/formResponse';
+  var data = new URLSearchParams();
+  data.append('entry.1028836109', document.getElementById('i-nombre').value);
+  var tipoId = document.querySelector('input[name="i-tipoid"]:checked');
+  data.append('entry.662334158', tipoId ? tipoId.value : '');
+  data.append('entry.1230125836', document.getElementById('i-numid').value);
+  data.append('entry.113795854', document.getElementById('i-edad').value);
+  data.append('entry.56398696', document.getElementById('i-ciudad').value);
+  data.append('entry.1642815565', document.getElementById('i-localidad').value);
+  data.append('entry.107421485', document.getElementById('i-whatsapp').value);
+  data.append('entry.70834486', document.getElementById('i-email').value);
+  var perfil = document.querySelector('input[name="i-perfil"]:checked');
+  data.append('entry.451378527', perfil ? perfil.value : '');
+  var nivel = document.querySelector('input[name="i-nivel"]:checked');
+  data.append('entry.183977411', nivel ? nivel.value : '');
+  data.append('entry.2103748715', document.getElementById('i-motivacion').value);
+  var aprender = document.querySelectorAll('input[name="i-aprender"]:checked');
+  aprender.forEach(function(cb) { data.append('entry.472396041', cb.value); });
+
+  var iframe = document.createElement('iframe');
+  iframe.name = 'gform-submit';
+  iframe.style.display = 'none';
+  document.body.appendChild(iframe);
+
+  var form = document.createElement('form');
+  form.method = 'POST';
+  form.action = formURL;
+  form.target = 'gform-submit';
+  data.forEach(function(value, key) {
+    var input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = key;
+    input.value = value;
+    form.appendChild(input);
+  });
+  document.body.appendChild(form);
+  form.submit();
+
+  document.querySelectorAll('.fstep').forEach(function(s) { s.style.display = 'none'; });
+  document.getElementById('step-nav').style.display = 'none';
+  document.getElementById('fs-ok').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+var lbImages = [];
+var lbIndex = 0;
+
+document.querySelectorAll('.gallery-item').forEach(function(item) {
+  item.style.cursor = 'pointer';
+  item.addEventListener('click', function() {
+    var inner = this.querySelector('.gallery-inner');
+    var bg = inner.style.background || inner.style.backgroundImage;
+    var match = bg.match(/url\(['"]?([^'")\s]+)['"]?\)/);
+    if (match) openLightbox(match[1], this);
+  });
+});
+
+function openLightbox(url, el) {
+  lbImages = [];
+  document.querySelectorAll('.gallery-item').forEach(function(item, i) {
+    var inner = item.querySelector('.gallery-inner');
+    var bg = inner.style.background || inner.style.backgroundImage;
+    var m = bg.match(/url\(['"]?([^'")\s]+)['"]?\)/);
+    if (m) lbImages.push({ url: m[1], cap: item.querySelector('.gallery-cap') ? item.querySelector('.gallery-cap').textContent : '' });
+    if (item === el) lbIndex = lbImages.length - 1;
+  });
+  showLightboxImage();
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function showLightboxImage() {
+  document.getElementById('lightbox-img').src = lbImages[lbIndex].url;
+  document.getElementById('lightbox-cap').textContent = lbImages[lbIndex].cap;
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navLightbox(dir) {
+  lbIndex = (lbIndex + dir + lbImages.length) % lbImages.length;
+  showLightboxImage();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') navLightbox(1);
+  if (e.key === 'ArrowLeft') navLightbox(-1);
+});
+
+document.querySelectorAll('img').forEach(function(img) {
+  var src = img.src || '';
+  if (src.indexOf('tz8GOAS') > -1 || (src.indexOf('NpvKsfPRjCcVeqiH') > -1 && img.style.pointerEvents !== 'none')) {
+    img.style.cursor = 'pointer';
+    img.addEventListener('click', function(e) {
+      e.stopPropagation();
+      window.open('https://www.pornomotora.com/', '_blank');
+    });
+  }
+});
+
+var hashPage = window.location.hash.replace('#','');
+if (hashPage && document.getElementById('page-' + hashPage)) {
+  showPage(hashPage);
+} else {
+  showPage('home');
+}
+window.addEventListener('hashchange', function() {
+  var h = window.location.hash.replace('#','');
+  if (h && document.getElementById('page-' + h)) showPage(h);
+});
+window.addEventListener('load', function() {
+  var h = window.location.hash.replace('#','');
+  if (h && document.getElementById('page-' + h)) showPage(h);
+});
+</script>
+</body>
+</html>
